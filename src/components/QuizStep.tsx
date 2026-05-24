@@ -176,7 +176,7 @@ export default function QuizStep({ step, data, updateData, onNext, onBack, total
             </div>
 
             <div>
-              <label className="block text-lg font-bold mb-2 text-copa-blue" style={{ fontFamily: "var(--font-titulo)" }}>
+              <label className="block text-lg font-bold mb-2 text-copa-blue" style={{ fontFamily: "var(--font-titulo)", letterSpacing: "0.15em" }}>
                 FOTO DEL CRACK
               </label>
               {photoPreview ? (
@@ -189,11 +189,11 @@ export default function QuizStep({ step, data, updateData, onNext, onBack, total
                 <div className="flex gap-3">
                   <button type="button" onClick={() => fileInputRef.current?.click()} className="flex-1 border-2 border-dashed border-gray-300 rounded-xl p-5 text-center cursor-pointer hover:border-copa-blue transition-colors">
                     <span className="text-3xl block mb-1">🖼️</span>
-                    <p className="text-sm font-bold" style={{ fontFamily: "var(--font-titulo)" }}>Galería</p>
+                    <p className="text-sm font-bold" style={{ fontFamily: "var(--font-titulo)", letterSpacing: "0.15em" }}>Galería</p>
                   </button>
                   <button type="button" onClick={() => cameraInputRef.current?.click()} className="flex-1 border-2 border-dashed border-gray-300 rounded-xl p-5 text-center cursor-pointer hover:border-copa-blue transition-colors">
                     <span className="text-3xl block mb-1">📸</span>
-                    <p className="text-sm font-bold" style={{ fontFamily: "var(--font-titulo)" }}>Cámara</p>
+                    <p className="text-sm font-bold" style={{ fontFamily: "var(--font-titulo)", letterSpacing: "0.15em" }}>Cámara</p>
                   </button>
                 </div>
               )}

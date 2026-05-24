@@ -31,7 +31,7 @@ export default function ConfirmScreen({ data, fotoPreviewUrl, onConfirm, onBack 
       style={{ background: "#74ACDF" }}
     >
       {/* Card */}
-      <div className="bg-white rounded-2xl w-full max-w-sm shadow-lg overflow-hidden animate-slide-up">
+      <div className="bg-white rounded-2xl w-full max-w-md shadow-lg overflow-hidden animate-slide-up">
 
         {/* Progress bar */}
         <div className="px-5 pt-5 pb-2">
@@ -50,9 +50,6 @@ export default function ConfirmScreen({ data, fotoPreviewUrl, onConfirm, onBack 
 
         {/* Body */}
         <div className="px-5 pb-6 pt-4 flex flex-col items-center">
-
-          {/* Warning icon */}
-          <div className="text-4xl mb-3">⚠️</div>
 
           {/* Title */}
           <h2
@@ -98,7 +95,7 @@ export default function ConfirmScreen({ data, fotoPreviewUrl, onConfirm, onBack 
                 <span className="text-xs font-bold text-gray-400 tracking-widest" style={{ fontFamily: "var(--font-titulo)" }}>
                   {row.label}
                 </span>
-                <span className="text-sm font-bold text-gray-700 text-right max-w-[60%] truncate" style={{ fontFamily: "var(--font-papernotes)" }}>
+                <span className="text-sm font-bold text-gray-700 text-right max-w-[70%]" style={{ fontFamily: "var(--font-papernotes)" }}>
                   {row.value}
                 </span>
               </div>

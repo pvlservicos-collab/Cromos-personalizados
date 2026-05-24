@@ -96,7 +96,7 @@ export default function LoadingScreen({ title, gifUrl, longWait, startTime }: Lo
 
         {longWait && (
           <p className="text-sm font-bold text-copa-blue text-center -mt-4" style={{ fontFamily: "var(--font-papernotes)" }}>
-            No salgas de esta pantalla, tarda hasta 2 minutos.
+            No cierres esta pantalla, puede tardar hasta 2 minutos.
           </p>
         )}
 
@@ -110,13 +110,16 @@ export default function LoadingScreen({ title, gifUrl, longWait, startTime }: Lo
         {longWait && (
           <div className="text-center leading-snug">
             <p className="text-base font-bold text-copa-blue" style={{ fontFamily: "var(--font-papernotes)" }}>
-              ¡Conseguí tu figurita HOY y participá por
+              ¡Conseguí tu figurita HOY y participá por un sorteo de entradas para vivir el
             </p>
             <p className="text-4xl font-black text-copa-green my-1" style={{ fontFamily: "var(--font-titulo)" }}>
-              MIL DÓLARES
+              "Mundial 2026"
             </p>
             <p className="text-base font-bold text-copa-blue" style={{ fontFamily: "var(--font-papernotes)" }}>
-              el 11/06/2026 arranque de los partidos.
+              en vivo!
+            </p>
+            <p className="text-sm text-copa-blue mt-2" style={{ fontFamily: "var(--font-papernotes)" }}>
+              Sorteo el 11/06/2026, inicio de la Copa.
             </p>
           </div>
         )}
@@ -135,7 +138,7 @@ export default function LoadingScreen({ title, gifUrl, longWait, startTime }: Lo
         <div className="w-full">
           <div className="flex justify-between items-center mb-1">
             <span className="text-xs font-bold text-copa-blue" style={{ fontFamily: "var(--font-papernotes)" }}>
-              {longWait && elapsed > 0 ? `${elapsed}s` : "Cargando..."}
+              {"Cargando..."}
             </span>
             <span className="text-sm font-bold text-copa-blue" style={{ fontFamily: "var(--font-papernotes)" }}>
               {percent}%

@@ -22,7 +22,7 @@ export default function Hero({ onStart }: HeroProps) {
           className="absolute left-0 top-14 md:top-16 w-36 h-52 md:w-48 md:h-72 rounded-xl overflow-hidden shadow-md z-10"
           style={{
             transform: "rotate(-8deg) translateZ(0)",
-            animation: "wiggle 4s ease-in-out infinite",
+            animation: "wiggle 14s ease-in-out infinite",
             willChange: "transform",
             backfaceVisibility: "hidden",
           }}
@@ -44,7 +44,7 @@ export default function Hero({ onStart }: HeroProps) {
           className="absolute left-[58%] -translate-x-1/2 top-8 w-44 h-64 md:w-60 md:h-[340px] rounded-xl overflow-hidden shadow-md z-30"
           style={{
             transform: "translateZ(0)",
-            animation: "wiggle-center 4s ease-in-out infinite 0.5s",
+            animation: "wiggle-center 14s ease-in-out infinite 0.5s",
             willChange: "transform",
             backfaceVisibility: "hidden",
           }}
@@ -66,7 +66,7 @@ export default function Hero({ onStart }: HeroProps) {
           className="absolute right-0 top-14 md:top-16 w-36 h-52 md:w-48 md:h-72 rounded-xl overflow-hidden shadow-md z-10"
           style={{
             transform: "rotate(8deg) translateZ(0)",
-            animation: "wiggle-down 4s ease-in-out infinite 1s",
+            animation: "wiggle-down 14s ease-in-out infinite 1s",
             willChange: "transform",
             backfaceVisibility: "hidden",
           }}
@@ -97,7 +97,7 @@ export default function Hero({ onStart }: HeroProps) {
         onClick={onStart}
         className="w-full max-w-md bg-copa-blue text-copa-white font-bold text-2xl md:text-3xl py-5 rounded-2xl
           shadow-lg hover:bg-copa-blue-hover active:scale-95 transition-all duration-200
-          animate-pulse-glow cursor-pointer tracking-[0.15em]"
+          cursor-pointer tracking-[0.15em]"
         style={{ fontFamily: "var(--font-titulo)" }}
       >
         EMPEZAR
