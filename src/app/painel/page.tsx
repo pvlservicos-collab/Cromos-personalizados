@@ -64,11 +64,12 @@ interface FunilData {
   // Session-based (100% reliable)
   sessions: {
     total: number; cta: number; obrigados: number;
-    daily: { day: string; count: number; count_a: number; count_b: number }[];
-    a: { total: number; viu_preco: number; cta: number; obrigados: number };
-    b: { total: number; viu_preco: number; cta: number; obrigados: number };
+    daily: { day: string; count: number; count_a: number; count_b: number; count_pets?: number }[];
+    a:    { total: number; viu_preco: number; cta: number; obrigados: number };
+    b:    { total: number; viu_preco: number; cta: number; obrigados: number };
+    pets: { total: number; viu_preco: number; cta: number; obrigados: number };
   };
-  funnel: { step: string; count: number; count_a: number; count_b: number }[];
+  funnel: { step: string; count: number; count_a: number; count_b: number; count_pets?: number }[];
   // Sales (webhook-based)
   vendas: {
     pagos: number;
@@ -121,7 +122,7 @@ const FUNNEL_STEPS = [
 ];
 
 const EMPTY_FUNIL: FunilData = {
-  sessions: { total: 0, cta: 0, obrigados: 0, daily: [], a: { total: 0, viu_preco: 0, cta: 0, obrigados: 0 }, b: { total: 0, viu_preco: 0, cta: 0, obrigados: 0 } },
+  sessions: { total: 0, cta: 0, obrigados: 0, daily: [], a: { total: 0, viu_preco: 0, cta: 0, obrigados: 0 }, b: { total: 0, viu_preco: 0, cta: 0, obrigados: 0 }, pets: { total: 0, viu_preco: 0, cta: 0, obrigados: 0 } },
   funnel: [],
   vendas: { pagos: 0, a_count: 0, a_total: 0, b_count: 0, b_total: 0, bumps_count: 0, bumps_receita: 0, daily: [] },
   segunda: { cliques: 0, starts: 0, compras: 0, receita: null, viu_preco: 0, cta: 0, obrigados: 0 },
@@ -598,7 +599,7 @@ function MetricasTab() {
   const [loading, setLoading]     = useState(true);
   const [error, setError]         = useState<string | null>(null);
   const [countdown, setCountdown] = useState(60);
-  const [sub, setSub]             = useState<"comp" | "segunda">("comp");
+  const [sub, setSub]             = useState<"comp" | "segunda" | "pets">("comp");
 
   // Chart canvas refs
   const dailyRef   = useRef<HTMLCanvasElement>(null);
@@ -690,8 +691,9 @@ function MetricasTab() {
   const selectedHour = hourPeriods.find(h => h.key === period)?.key ?? "";
 
   const SUB_TABS = [
-    { key: "comp" as const,    label: "Visão Geral",  color: "#0f172a" },
+    { key: "comp"    as const, label: "Visão Geral",  color: "#0f172a" },
     { key: "segunda" as const, label: "2ª Figurinha", color: "#7c3aed" },
+    { key: "pets"    as const, label: "Pets",         color: "#16a34a" },
   ];
 
   const cardStyle = { background: "#fff", borderRadius: 12, padding: "18px 16px", boxShadow: "0 1px 3px rgba(0,0,0,.07)" } as const;
@@ -821,6 +823,58 @@ function MetricasTab() {
               ))}
             </div>
           </div>
+        );
+      })()}
+
+      {/* ── Pets ── */}
+      {sub === "pets" && (() => {
+        const sp = s.pets ?? { total: 0, viu_preco: 0, cta: 0, obrigados: 0 };
+        const taxaPets = sp.total > 0 ? Math.round(sp.obrigados / sp.total * 100) : 0;
+        const base = sp.total > 0 ? sp.total : 1;
+        const steps = [
+          { label: "Sessões",           n: sp.total,      color: "#16a34a", pct: 100 },
+          { label: "Chegaram no preço", n: sp.viu_preco,  color: "#15803d", pct: sp.viu_preco / base * 100 },
+          { label: "Clicaram em comprar", n: sp.cta,      color: "#166534", pct: sp.cta       / base * 100 },
+          { label: "Obrigados",         n: sp.obrigados,  color: "#14532d", pct: sp.obrigados / base * 100 },
+        ];
+        return (
+          <>
+            <div style={{ background: "#fff", borderRadius: 12, padding: "16px 18px", boxShadow: "0 1px 3px rgba(0,0,0,.07)", marginBottom: 24 }}>
+              <div style={{ fontSize: 12, fontWeight: 800, color: "#16a34a", textTransform: "uppercase", letterSpacing: ".06em", marginBottom: 14, borderBottom: "2px solid #16a34a", paddingBottom: 8 }}>
+                Oferta Pets — AR$9.900
+              </div>
+              {[
+                { label: "Sessões",           value: sp.total,      sub: "telefones capturados" },
+                { label: "Chegaram no preço", value: sp.viu_preco,  sub: "viram o preço final" },
+                { label: "Clicaram no botão", value: sp.cta,        sub: "clicaram em comprar" },
+                { label: "Obrigados",         value: sp.obrigados,  sub: "chegaram na pág. obrigado" },
+                { label: "Taxa obrigado",     value: `${taxaPets}%`, sub: "sessões → obrigado" },
+              ].map(c => (
+                <div key={c.label} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "7px 0", borderBottom: "1px solid #f1f5f9" }}>
+                  <span style={{ fontSize: 12, color: "#475569" }}>{c.label}</span>
+                  <div style={{ textAlign: "right" }}>
+                    <span style={{ fontSize: 18, fontWeight: 800, color: "#16a34a" }}>{c.value}</span>
+                    <div style={{ fontSize: 10, color: "#94a3b8" }}>{c.sub}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ background: "#fff", borderRadius: 12, padding: 18, boxShadow: "0 1px 3px rgba(0,0,0,.07)" }}>
+              <p style={{ margin: "0 0 16px", fontSize: 13, fontWeight: 700, color: "#0f172a" }}>Funil Pets</p>
+              <div style={{ display: "flex", alignItems: "stretch", background: "#f8fafc", borderRadius: 10, overflow: "hidden", border: "1px solid #e2e8f0" }}>
+                {steps.map((step, i) => (
+                  <div key={step.label} style={{ flex: 1, padding: "14px 10px", borderLeft: i > 0 ? "1px solid #e2e8f0" : "none" }}>
+                    <div style={{ fontSize: 9, fontWeight: 700, color: "#64748b", marginBottom: 8, textTransform: "uppercase", letterSpacing: ".04em" }}>{step.label}</div>
+                    <div style={{ height: 5, background: "#e2e8f0", borderRadius: 99, overflow: "hidden", marginBottom: 8 }}>
+                      <div style={{ width: `${Math.min(100, step.pct)}%`, height: "100%", background: step.color, borderRadius: 99, transition: "width .4s" }} />
+                    </div>
+                    <div style={{ fontSize: 22, fontWeight: 800, color: step.color, lineHeight: 1 }}>{step.n}</div>
+                    <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 3 }}>{step.pct.toFixed(0)}%</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
         );
       })()}
     </div>

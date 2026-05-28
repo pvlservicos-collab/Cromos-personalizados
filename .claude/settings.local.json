@@ -27,7 +27,10 @@
       "Bash(xargs ls:*)",
       "Read(//c/Users/pedro/AppData/Local/Temp/claude/c--Users-pedro-Desktop-a-VINICIUS-WEB-FOLEM-MIDIA-oferta-copa-br//**)",
       "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(k,v\\) for k,v in d.get\\('dependencies',{}\\).items\\(\\)]\")",
-      "Bash(curl -s -X POST http://localhost:3000/api/track -H \"Content-Type: application/json\" -d '{\"session_id\":\"test123\",\"step\":\"quiz_1\",\"email\":\"teste@teste.com\",\"nome\":\"Teste\"}')"
+      "Bash(curl -s -X POST http://localhost:3000/api/track -H \"Content-Type: application/json\" -d '{\"session_id\":\"test123\",\"step\":\"quiz_1\",\"email\":\"teste@teste.com\",\"nome\":\"Teste\"}')",
+      "Bash(Get-ChildItem -Recurse -Path \"src\" -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object FullName)",
+      "Bash(ConvertTo-Json)"
     ]
   }
 }

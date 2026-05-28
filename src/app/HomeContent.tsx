@@ -47,7 +47,7 @@ type AppStep = "hero" | "quiz-1" | "loading-photo" | "quiz-2" | "quiz-3" | "conf
 const SEGUNDA_CHECKOUT = "https://checkout.figurinhadacopadomundo.com/VCCL1O8SD2GE";
 const SEGUNDA_PRICE = "AR$7.900";
 
-export default function HomeContent({ checkoutUrl, price }: { checkoutUrl?: string; price?: string }) {
+export default function HomeContent({ checkoutUrl, price, oferta: ofertaProp }: { checkoutUrl?: string; price?: string; oferta?: string }) {
   const isSegunda = typeof window !== "undefined" && !!new URLSearchParams(window.location.search).get("start");
   const resolvedCheckoutUrl = checkoutUrl ?? (isSegunda ? SEGUNDA_CHECKOUT : undefined);
   const resolvedPrice = price ?? (isSegunda ? SEGUNDA_PRICE : undefined);
@@ -124,9 +124,9 @@ export default function HomeContent({ checkoutUrl, price }: { checkoutUrl?: stri
     const s = stepMap[appStep];
     if (!s) return;
     const { telefone, nome } = dataRef.current;
-    const oferta = isSegunda ? "segunda" : (price === "AR$9.900" ? "b" : "a");
+    const oferta = isSegunda ? "segunda" : (ofertaProp ?? (price === "AR$9.900" ? "b" : "a"));
     track(s, { email: telefone || undefined, nome: nome || undefined, oferta });
-  }, [appStep, stickerUrl, isSegunda, price]);
+  }, [appStep, stickerUrl, isSegunda, price, ofertaProp]);
 
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
