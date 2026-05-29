@@ -30,7 +30,10 @@
       "Bash(curl -s -X POST http://localhost:3000/api/track -H \"Content-Type: application/json\" -d '{\"session_id\":\"test123\",\"step\":\"quiz_1\",\"email\":\"teste@teste.com\",\"nome\":\"Teste\"}')",
       "Bash(Get-ChildItem -Recurse -Path \"src\" -ErrorAction SilentlyContinue)",
       "Bash(Select-Object FullName)",
-      "Bash(ConvertTo-Json)"
+      "Bash(ConvertTo-Json)",
+      "Bash(findstr /i \"neon\\\\|postgres\\\\|database\")",
+      "Bash(node -e ' *)",
+      "Bash(grep -E \"\\\\.\\(ts|js|sql\\)$\")"
     ]
   }
 }
