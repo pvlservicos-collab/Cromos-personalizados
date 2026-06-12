@@ -30,8 +30,8 @@ export default function Hero({ onStart }: HeroProps) {
         >
           <div className="relative w-full h-full">
             <Image
-              src="/olivia.webp"
-              alt="Cromo Helena"
+              src="/figurinhaolivia.webp"
+              alt="Cromo Olivia"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 144px, 192px"
@@ -52,8 +52,8 @@ export default function Hero({ onStart }: HeroProps) {
         >
           <div className="relative w-full h-full">
             <Image
-              src="/mateo.webp"
-              alt="Cromo Arthur"
+              src="/figurinhamiguel.webp"
+              alt="Cromo Miguel"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 176px, 240px"
@@ -74,8 +74,8 @@ export default function Hero({ onStart }: HeroProps) {
         >
           <div className="relative w-full h-full">
             <Image
-              src="/olivia.webp"
-              alt="Cromo Helena"
+              src="/figurinhaolivia.webp"
+              alt="Cromo Olivia"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 144px, 192px"

@@ -4,7 +4,7 @@ import ResultScreen from "@/components/ResultScreen";
 export default function VerPreco() {
   return (
     <ResultScreen
-      stickerUrl="/mateo.webp"
+      stickerUrl="/figurinhamiguel.webp"
       stickerId="preview"
       onRetry={() => {}}
       checkoutUrl="https://pay.hotmart.com/T106028174P?checkoutMode=10"

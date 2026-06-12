@@ -21,7 +21,7 @@ async function getModeloComprimido(): Promise<Buffer> {
 
   let rawBuffer: Buffer;
   try {
-    const modeloPath = join(process.cwd(), "public", "modelo-figurita.webp");
+    const modeloPath = join(process.cwd(), "public", "figurinhamodelo.webp");
     rawBuffer = readFileSync(modeloPath);
     console.log("modelo: carregado do filesystem");
   } catch (fsErr) {
@@ -30,8 +30,8 @@ async function getModeloComprimido(): Promise<Buffer> {
       ? `https://${process.env.VERCEL_URL}`
       : process.env.NEXT_PUBLIC_URL ?? "http://localhost:3000";
     console.log(`modelo: filesystem falhou (${fsErr instanceof Error ? fsErr.message : fsErr}), buscando via HTTP de ${host}`);
-    const res = await fetch(`${host}/modelo-figurita.webp`);
-    if (!res.ok) throw new Error(`HTTP ${res.status} ao buscar modelo-figurita.webp`);
+    const res = await fetch(`${host}/figurinhamodelo.webp`);
+    if (!res.ok) throw new Error(`HTTP ${res.status} ao buscar figurinhamodelo.webp`);
     rawBuffer = Buffer.from(await res.arrayBuffer());
   }
 
@@ -186,7 +186,7 @@ INSTRUCTIONS:
 
 1. REMOVE the adult athlete from Image 2 entirely.
 
-2. GENERATE a chest-up portrait of the subject wearing the red Portugal 2026 national team jersey (red body #C8102E, green accents, FPF badge on left chest), facing forward, arms down.
+2. GENERATE a chest-up portrait of the subject wearing the red Portugal national team home jersey (red body, green V-neck collar trim, white Portuguese Football Federation crest on the left chest, Puma logo on both shoulders), facing forward, arms down.
 
    BODY PROPORTIONS — CRITICAL:
    - Use the subject's FACE from Image 1 as your scale anchor. The shoulders, torso, and jersey must be sized to fit that face naturally.
@@ -198,7 +198,7 @@ INSTRUCTIONS:
 
 4. Place the portrait centered where the original athlete was in the card.
 
-5. Keep ALL other card elements unchanged: turquoise background, green "26" graphic, icons, emblems, flag, vertical text, logos, borders, card edges, bottom text area.
+5. Keep ALL other card elements from Image 2 unchanged, pixel-identical: the turquoise background, the large green-and-red "26" numerals graphic behind the portrait, the white FIFA World Cup trophy logo with "FIFA" wordmark in the top-right corner, the Portugal flag shield emblem and vertical "POR" outline lettering on the right edge, the PANINI logo in the bottom-right corner, the rounded text banners, and all borders/card edges.
 
 6. Update the text fields:
 [NAME]: ${nomeUpper}

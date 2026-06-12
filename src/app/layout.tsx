@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "O Teu Cromo Panini do Mundial 2026 | Cria o teu agora",
   description:
-    "Cria o teu cromo Panini personalizado do Mundial 2026! A tua foto com o estilo dos campe�es. Ficheiro digital.",
+    "Cria o teu cromo Panini personalizado do Mundial 2026! A tua foto com o estilo dos campeões. Ficheiro digital.",
   robots: "index, follow",
   openGraph: {
     title: "O Teu Cromo Panini do Mundial 2026",

@@ -45,7 +45,7 @@ const initialData: QuizData = {
 type AppStep = "hero" | "quiz-1" | "loading-photo" | "quiz-2" | "quiz-3" | "confirm" | "loading-generate" | "result";
 
 const SEGUNDA_CHECKOUT = "https://pay.hotmart.com/T106028174P?checkoutMode=10";
-const SEGUNDA_PRICE = "�3,90";
+const SEGUNDA_PRICE = "€3,90";
 
 export default function HomeContent({ checkoutUrl, price, oferta: ofertaProp }: { checkoutUrl?: string; price?: string; oferta?: string }) {
   const isSegunda = typeof window !== "undefined" && !!new URLSearchParams(window.location.search).get("start");
@@ -256,7 +256,7 @@ export default function HomeContent({ checkoutUrl, price, oferta: ofertaProp }: 
       try {
         wakeLock = await navigator.wakeLock.request("screen");
       } catch {
-        // Wake Lock n�o suportado ou negado
+        // Wake Lock não suportado ou negado
       }
     };
     requestWakeLock();
