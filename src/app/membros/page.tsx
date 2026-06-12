@@ -564,7 +564,7 @@ function MembrosContent() {
         <h1 className="membros-h1" style={{ color: "#C8102E", fontSize: 28, fontWeight: 900, margin: "0 0 8px", letterSpacing: ".06em", whiteSpace: "nowrap" }}>
           ÁREA DE TRANSFERÍVEIS
         </h1>
-        <p style={{ color: "rgba(0,35,149,.6)", fontSize: 14, margin: 0, fontWeight: 500 }}>
+        <p style={{ color: "rgba(255,255,255,.7)", fontSize: 14, margin: 0, fontWeight: 500 }}>
           Acede a todos os teus produtos comprados
         </p>
       </div>
@@ -717,7 +717,7 @@ function MembrosContent() {
               <a
                 href="https://api.whatsapp.com/send?phone=559294621319&text=Hola%2C%20necesito%20ayuda%20con%20mi%20compra."
                 target="_blank" rel="noopener noreferrer"
-                style={{ color: "rgba(0,35,149,.5)", fontSize: 13, textDecoration: "underline", fontWeight: 500 }}
+                style={{ color: "rgba(255,255,255,.5)", fontSize: 13, textDecoration: "underline", fontWeight: 500 }}
               >
                 Problemas com algum produto? Contacta o suporte
               </a>
