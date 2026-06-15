@@ -26,7 +26,7 @@ function compressToBase64(file: File, maxSize = 512, quality = 0.7): Promise<str
       const dataUrl = canvas.toDataURL("image/jpeg", quality);
       resolve(dataUrl.split(",")[1]);
     };
-    img.onerror = () => reject(new Error("Falha ao carregar imagem"));
+    img.onerror = () => reject(new Error("Error al cargar la imagen"));
     img.src = URL.createObjectURL(file);
   });
 }
@@ -365,7 +365,7 @@ export default function HomeContent({ checkoutUrl, price, oferta: ofertaProp }: 
   }, [quizStep]);
 
   return (
-    <main className="flex flex-col items-center min-h-screen bg-[#006600]">
+    <main className="flex flex-col items-center min-h-screen bg-[#FABD00]">
       {appStep === "hero" && (
         <Hero
           onStart={() => {
@@ -390,7 +390,7 @@ export default function HomeContent({ checkoutUrl, price, oferta: ofertaProp }: 
 
       {appStep === "loading-photo" && (
         <LoadingScreen
-          title="A CARREGAR FOTO"
+          title="CARGANDO FOTO"
           gifUrl="https://media.giphy.com/media/qp61kl8rdZwuQ/giphy.gif"
         />
       )}
@@ -415,7 +415,7 @@ export default function HomeContent({ checkoutUrl, price, oferta: ofertaProp }: 
 
       {appStep === "loading-generate" && (
         <LoadingScreen
-          title="A GERAR O TEU CROMO"
+          title="GENERANDO TU CROMO"
           gifUrl="/sorteio.webp"
           longWait
           startTime={genStartTime}

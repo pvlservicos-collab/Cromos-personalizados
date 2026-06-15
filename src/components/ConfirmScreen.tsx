@@ -17,10 +17,10 @@ export default function ConfirmScreen({ data, fotoPreviewUrl, onConfirm, onBack 
   };
 
   const rows = [
-    { label: "NOME",      value: data.nome || "—" },
+    { label: "NOMBRE",    value: data.nome || "—" },
     { label: "WHATSAPP",  value: data.telefone || "—" },
-    { label: "CLUBE",     value: data.clube || "—" },
-    { label: "DATA",      value: formatDate(data.dataNascimento) },
+    { label: "CLUB",      value: data.clube || "—" },
+    { label: "FECHA",     value: formatDate(data.dataNascimento) },
     ...(data.peso   ? [{ label: "PESO",   value: `${data.peso} kg` }]   : []),
     ...(data.altura ? [{ label: "ALTURA", value: `${data.altura} cm` }] : []),
   ];
@@ -28,16 +28,16 @@ export default function ConfirmScreen({ data, fotoPreviewUrl, onConfirm, onBack 
   return (
     <section
       className="flex flex-col items-center min-h-[100dvh] w-full px-4 py-6 justify-start"
-      style={{ background: "#006600" }}
+      style={{ background: "#FABD00" }}
     >
       {/* Card */}
       <div className="bg-white rounded-2xl w-full max-w-md shadow-lg overflow-hidden animate-slide-up">
 
-        {/* Barra de progresso */}
+        {/* Barra de progreso */}
         <div className="px-5 pt-5 pb-2">
           <div className="flex justify-between items-center mb-2">
             <span className="text-xs font-bold text-gray-500" style={{ fontFamily: "var(--font-papernotes)" }}>
-              Passo 4 de 4
+              Paso 4 de 4
             </span>
             <span className="text-xs font-bold text-copa-blue" style={{ fontFamily: "var(--font-papernotes)" }}>
               100%
@@ -56,15 +56,15 @@ export default function ConfirmScreen({ data, fotoPreviewUrl, onConfirm, onBack 
             className="text-2xl font-bold text-copa-blue text-center mb-3 tracking-wide"
             style={{ fontFamily: "var(--font-titulo)" }}
           >
-            REVÊ OS TEUS DADOS
+            REVISA TUS DATOS
           </h2>
 
           {/* Subtítulo */}
           <p className="text-sm text-gray-600 text-center mb-1" style={{ fontFamily: "var(--font-papernotes)" }}>
-            O cromo será gerado em breve. Revê os dados com atenção.
+            El cromo se generará en breve. Revisa los datos con atención.
           </p>
           <p className="text-sm font-bold text-gray-800 text-center mb-5" style={{ fontFamily: "var(--font-papernotes)" }}>
-            Não realizamos alterações após a aprovação e o pagamento.
+            No realizamos cambios después de la aprobación y el pago.
           </p>
 
           {/* Foto */}
@@ -72,7 +72,7 @@ export default function ConfirmScreen({ data, fotoPreviewUrl, onConfirm, onBack 
             {fotoPreviewUrl ? (
               <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-copa-blue shadow-md mb-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={fotoPreviewUrl} alt="A tua foto" className="w-full h-full object-cover" />
+                <img src={fotoPreviewUrl} alt="Tu foto" className="w-full h-full object-cover" />
               </div>
             ) : (
               <div className="w-20 h-20 rounded-full bg-gray-200 border-4 border-copa-blue flex items-center justify-center mb-2">
@@ -80,7 +80,7 @@ export default function ConfirmScreen({ data, fotoPreviewUrl, onConfirm, onBack 
               </div>
             )}
             <p className="text-xs font-bold text-copa-blue text-center" style={{ fontFamily: "var(--font-papernotes)" }}>
-              VERIFICA QUE A CARA ESTEJA BEM VISÍVEL
+              VERIFICA QUE LA CARA SE VEA BIEN
             </p>
           </div>
 
@@ -102,33 +102,33 @@ export default function ConfirmScreen({ data, fotoPreviewUrl, onConfirm, onBack 
             ))}
           </div>
 
-          {/* Botão confirmar */}
+          {/* Botón confirmar */}
           <button
             onClick={onConfirm}
             className="w-full text-copa-white font-bold text-lg py-4 rounded-2xl
               shadow-lg active:scale-95 transition-all duration-200 cursor-pointer tracking-[0.1em] mb-3"
             style={{
               fontFamily: "var(--font-titulo)",
-              background: "linear-gradient(135deg, #00DD55 0%, #00BB33 100%)",
-              boxShadow: "0 6px 24px rgba(0,153,51,0.45)",
+              background: "linear-gradient(135deg, #E2101F 0%, #AA151B 100%)",
+              boxShadow: "0 6px 24px rgba(170,21,27,0.45)",
             }}
           >
-            ENTENDIDO, GERAR CROMO ⚽
+            ENTENDIDO, GENERAR CROMO ⚽
           </button>
 
-          {/* Botão voltar */}
+          {/* Botón volver */}
           <button
             onClick={onBack}
             className="w-full bg-white text-copa-blue font-bold text-base py-4 rounded-2xl
               border-2 border-copa-blue hover:bg-red-50 active:scale-95 transition-all duration-200 cursor-pointer tracking-[0.1em]"
             style={{ fontFamily: "var(--font-titulo)" }}
           >
-            CORRIGIR DADOS
+            CORREGIR DATOS
           </button>
         </div>
       </div>
 
-      {/* Pontos */}
+      {/* Puntos */}
       <div className="flex gap-2 mt-5">
         {[0, 1, 2, 3].map(i => (
           <div key={i} className="w-3 h-3 rounded-full bg-copa-blue" />

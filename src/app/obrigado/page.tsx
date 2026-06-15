@@ -6,20 +6,20 @@ import { track } from "@/lib/track";
 
 const FAQ_ITEMS = [
   {
-    q: "Quando vou receber o meu cromo?",
-    a: "O teu cromo é gerado automaticamente e podes aceder a ele na área de transferíveis com o teu número de WhatsApp.",
+    q: "¿Cuándo voy a recibir mi cromo?",
+    a: "Tu cromo se genera automáticamente y puedes acceder a él en el área de descargas con tu número de WhatsApp.",
   },
   {
-    q: "Como faço o download do meu cromo?",
-    a: "Insere o teu número abaixo, acede à área de transferíveis e clica em '⬇ Descarregar PNG'.",
+    q: "¿Cómo descargo mi cromo?",
+    a: "Introduce tu número abajo, accede al área de descargas y haz clic en '⬇ Descargar PNG'.",
   },
   {
-    q: "Comprei mais de 1 produto",
-    a: "Insere o teu número no formulário abaixo para aceder à área de transferíveis com todos os teus produtos.",
+    q: "Compré más de 1 producto",
+    a: "Introduce tu número en el formulario de abajo para acceder al área de descargas con todos tus productos.",
   },
   {
-    q: "O cromo é digital ou físico?",
-    a: "O teu cromo é uma imagem digital (PNG) pronta para partilhar no WhatsApp, redes sociais ou imprimir em casa.",
+    q: "¿El cromo es digital o físico?",
+    a: "Tu cromo es una imagen digital (PNG) lista para compartir en WhatsApp, redes sociales o imprimir en casa.",
   },
 ];
 
@@ -43,7 +43,7 @@ function FaqBubble() {
             borderRadius: 20, padding: "8px 14px", boxShadow: "0 4px 20px rgba(0,0,0,.25)",
             whiteSpace: "nowrap", animation: "fadeInLabel .3s ease",
           }}>
-            Alguma dúvida?
+            ¿Alguna duda?
           </div>
         )}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
@@ -58,7 +58,7 @@ function FaqBubble() {
               padding: 0, overflow: "hidden",
               transition: "transform .2s",
             }}
-            aria-label="Perguntas frequentes"
+            aria-label="Preguntas frecuentes"
           >
             {open ? (
               <span style={{ color: "#fff", fontSize: 28, fontWeight: 700 }}>✕</span>
@@ -66,7 +66,7 @@ function FaqBubble() {
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src="/fotosuporte.png"
-                alt="Suporte"
+                alt="Soporte"
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
             )}
@@ -76,7 +76,7 @@ function FaqBubble() {
             fontSize: 10, fontWeight: 800, letterSpacing: ".08em",
             borderRadius: 6, padding: "3px 10px",
           }}>
-            SUPORTE
+            SOPORTE
           </div>
         </div>
       </div>
@@ -90,8 +90,8 @@ function FaqBubble() {
           overflow: "hidden", animation: "slideUp .25s ease",
         }}>
           <div style={{ background: "linear-gradient(135deg, #C8102E, #E61E3D)", padding: "16px 20px" }}>
-            <p style={{ color: "#fff", fontWeight: 800, fontSize: 15, margin: 0 }}>Perguntas frequentes</p>
-            <p style={{ color: "rgba(255,255,255,.65)", fontSize: 12, margin: "2px 0 0" }}>Respostas rápidas para ti</p>
+            <p style={{ color: "#fff", fontWeight: 800, fontSize: 15, margin: 0 }}>Preguntas frecuentes</p>
+            <p style={{ color: "rgba(255,255,255,.65)", fontSize: 12, margin: "2px 0 0" }}>Respuestas rápidas para ti</p>
           </div>
           <div style={{ padding: "8px 0", maxHeight: 340, overflowY: "auto" }}>
             {FAQ_ITEMS.map((item, i) => (
@@ -116,11 +116,11 @@ function FaqBubble() {
           </div>
           <div style={{ padding: "12px 20px", borderTop: "1px solid #f1f5f9", textAlign: "center" }}>
             <a
-              href="https://api.whatsapp.com/send?phone=559294621319&text=Ol%C3%A1%2C%20comprei%20um%20cromo%20e%20preciso%20de%20ajuda."
+              href="https://api.whatsapp.com/send?phone=559294621319&text=Hola%2C%20compr%C3%A9%20un%20cromo%20y%20necesito%20ayuda."
               target="_blank" rel="noopener noreferrer"
               style={{ color: "#25d366", fontSize: 13, fontWeight: 700, textDecoration: "none" }}
             >
-              💬 Falar com o suporte
+              💬 Hablar con soporte
             </a>
           </div>
         </div>
@@ -149,15 +149,15 @@ export default function Obrigado() {
 
   const handleLogin = async () => {
     const digits = phone.replace(/\D/g, "");
-    if (digits.length < 9) { setError("Insere um número de telemóvel válido (9 dígitos)."); return; }
+    if (digits.length < 9) { setError("Introduce un número de móvil válido (9 dígitos)."); return; }
     setLoading(true); setError(null);
     try {
       const res = await fetch(`/api/membros?fone=${digits}`);
-      if (res.status === 404) { setError("Nenhuma compra encontrada para esse número."); return; }
+      if (res.status === 404) { setError("No se encontró ninguna compra para ese número."); return; }
       if (!res.ok) throw new Error();
       router.push(`/membros?fone=${digits}`);
     } catch {
-      setError("Erro ao verificar. Tenta de novo.");
+      setError("Error al verificar. Inténtalo de nuevo.");
     } finally {
       setLoading(false);
     }
@@ -165,38 +165,38 @@ export default function Obrigado() {
 
   return (
     <main style={{
-      minHeight: "100vh", background: "#006600",
+      minHeight: "100vh", background: "#FABD00",
       fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
       display: "flex", flexDirection: "column", alignItems: "center",
       padding: "36px 16px 56px",
     }}>
 
       <div style={{ textAlign: "center", marginBottom: 32 }}>
-        <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(200,16,46,.15)", borderRadius: 12, padding: "8px 18px", marginBottom: 20 }}>
+        <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(198,11,30,.15)", borderRadius: 12, padding: "8px 18px", marginBottom: 20 }}>
           <span style={{ fontSize: 20 }}>⚽</span>
-          <span style={{ color: "#FFD700", fontWeight: 800, fontSize: 13, letterSpacing: ".1em" }}>CROMO COPA 2026</span>
+          <span style={{ color: "#C60B1E", fontWeight: 800, fontSize: 13, letterSpacing: ".1em" }}>CROMO MUNDIAL 2026</span>
         </div>
-        <h1 style={{ color: "#FFD700", fontSize: "clamp(36px, 8vw, 64px)", fontWeight: 900, margin: "0 0 10px", letterSpacing: ".08em", fontFamily: "var(--font-titulo, 'Arial Black', sans-serif)" }}>
-          OBRIGADO!
+        <h1 style={{ color: "#C60B1E", fontSize: "clamp(36px, 8vw, 64px)", fontWeight: 900, margin: "0 0 10px", letterSpacing: ".08em", fontFamily: "var(--font-titulo, 'Arial Black', sans-serif)" }}>
+          ¡GRACIAS!
         </h1>
-        <p style={{ color: "#fff", fontSize: 16, margin: 0, fontWeight: 600 }}>
-          O teu pagamento foi confirmado ✓
+        <p style={{ color: "#1a1a1a", fontSize: 16, margin: 0, fontWeight: 600 }}>
+          Tu pago ha sido confirmado ✓
         </p>
       </div>
 
       <div style={{ width: "100%", maxWidth: 480 }}>
         <div style={{ background: "#fff", borderRadius: 24, padding: "32px 28px", boxShadow: "0 20px 60px rgba(0,0,0,.25)" }}>
           <h2 style={{ fontSize: 20, fontWeight: 800, color: "#C8102E", margin: "0 0 8px", display: "flex", alignItems: "center", gap: 8 }}>
-            📱 Descarrega o teu cromo com o teu número:
+            📱 Descarga tu cromo con tu número:
           </h2>
           <p style={{ fontSize: 14, color: "#64748b", margin: "0 0 20px", fontFamily: "var(--font-papernotes)" }}>
-            Escreve o número que colocaste no início para aceder ao teu cromo e a todos os teus produtos.
+            Escribe el número que indicaste al principio para acceder a tu cromo y a todos tus productos.
           </p>
 
           <input
             type="tel"
             inputMode="numeric"
-            placeholder="Ex: 912345678"
+            placeholder="Ej: 612345678"
             value={phone}
             maxLength={15}
             disabled={loading}
@@ -221,22 +221,22 @@ export default function Obrigado() {
             style={{
               width: "100%", padding: "18px", border: "none", borderRadius: 14,
               cursor: loading ? "default" : "pointer",
-              background: "linear-gradient(135deg, #00DD55 0%, #00BB33 100%)", color: "#fff",
+              background: "linear-gradient(135deg, #E2101F 0%, #AA151B 100%)", color: "#fff",
               fontSize: 17, fontWeight: 800, letterSpacing: ".1em",
               fontFamily: "var(--font-titulo)", opacity: loading ? 0.7 : 1,
-              boxShadow: "0 6px 24px rgba(200,16,46,.4)",
+              boxShadow: "0 6px 24px rgba(170,21,27,.4)",
             }}
           >
-            {loading ? "A VERIFICAR..." : "ACEDER AO MEU CROMO →"}
+            {loading ? "VERIFICANDO..." : "ACCEDER A MI CROMO →"}
           </button>
         </div>
 
         <a
           href="/"
           onClick={() => { try { localStorage.removeItem("figurinha_sticker_id"); sessionStorage.removeItem("figurinha_sticker_url"); sessionStorage.removeItem("figurinha_sticker_id"); } catch {/**/ } }}
-          style={{ display: "block", textAlign: "center", color: "rgba(255,255,255,.5)", fontSize: 13, textDecoration: "underline", padding: "16px 8px" }}
+          style={{ display: "block", textAlign: "center", color: "rgba(0,0,0,.5)", fontSize: 13, textDecoration: "underline", padding: "16px 8px" }}
         >
-          Criar novo cromo
+          Crear nuevo cromo
         </a>
       </div>
 

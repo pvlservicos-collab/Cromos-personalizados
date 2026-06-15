@@ -75,7 +75,7 @@ export default function ResultScreen({ stickerUrl, stickerId, onRetry, onCheckou
   return (
     <section
       className="flex flex-col items-center min-h-[100dvh] w-full px-4 py-8 justify-center"
-      style={{ background: "#006600", userSelect: "none", WebkitUserSelect: "none" }}
+      style={{ background: "#FABD00", userSelect: "none", WebkitUserSelect: "none" }}
     >
       {!stickerUrl ? (
         <div className="bg-white rounded-2xl p-8 text-center border-4 border-copa-blue max-w-sm w-full animate-slide-up">
@@ -84,13 +84,13 @@ export default function ResultScreen({ stickerUrl, stickerId, onRetry, onCheckou
             className="text-2xl font-bold text-copa-blue mb-2"
             style={{ fontFamily: "var(--font-titulo)" }}
           >
-            TENTA DE NOVO
+            INTÉNTALO DE NUEVO
           </h2>
           <p className="text-base text-gray-600 mb-2" style={{ fontFamily: "var(--font-papernotes)" }}>
-            Por vezes os servidores da OpenAI ficam congestionados.
+            A veces los servidores de OpenAI se congestionan.
           </p>
           <p className="text-base text-gray-600 mb-6" style={{ fontFamily: "var(--font-papernotes)" }}>
-            Clica em tentar de novo e o cromo será gerado automaticamente.
+            Haz clic en intentar de nuevo y el cromo se generará automáticamente.
           </p>
           <button
             onClick={onRetry}
@@ -98,7 +98,7 @@ export default function ResultScreen({ stickerUrl, stickerId, onRetry, onCheckou
               shadow-lg hover:bg-copa-blue-hover active:scale-95 transition-all duration-200 cursor-pointer tracking-[0.1em]"
             style={{ fontFamily: "var(--font-titulo)" }}
           >
-            TENTAR DE NOVO
+            INTENTAR DE NUEVO
           </button>
         </div>
       ) : (
@@ -133,7 +133,7 @@ export default function ResultScreen({ stickerUrl, stickerId, onRetry, onCheckou
                   </p>
                   <p className="text-white text-[9px] font-bold tracking-widest whitespace-nowrap mt-1"
                     style={{ fontFamily: "var(--font-papernotes)", textShadow: "1px 1px 3px rgba(0,0,0,0.3)", opacity: 0.25 }}>
-                    meu-cromo-mundial2026 &nbsp;&nbsp; meu-cromo-mundial2026 &nbsp;&nbsp; meu-cromo-mundial2026
+                    mi-cromo-mundial2026 &nbsp;&nbsp; mi-cromo-mundial2026 &nbsp;&nbsp; mi-cromo-mundial2026
                   </p>
                 </div>
               ))}
@@ -141,26 +141,26 @@ export default function ResultScreen({ stickerUrl, stickerId, onRetry, onCheckou
             <div className="absolute inset-0" />
           </div>
 
-          {/* GOLOOO */}
+          {/* GOOOL */}
           <h1
-            className="text-6xl md:text-8xl text-white text-center tracking-[0.1em] mb-1"
+            className="text-6xl md:text-8xl text-[#C60B1E] text-center tracking-[0.1em] mb-1"
             style={{ fontFamily: "var(--font-titulo)", fontWeight: 400 }}
           >
-            GOLOOO!
+            ¡GOOOL!
           </h1>
 
           <p
-            className="text-lg md:text-xl text-white text-center font-bold mb-2"
+            className="text-lg md:text-xl text-[#1a1a1a] text-center font-bold mb-2"
             style={{ fontFamily: "var(--font-papernotes)" }}
           >
-            O teu cromo está pronto!
+            ¡Tu cromo está listo!
           </p>
 
           <p
-            className="text-base text-green-100 text-center mb-6"
+            className="text-base text-[#1a1a1a]/70 text-center mb-6"
             style={{ fontFamily: "var(--font-papernotes)" }}
           >
-            Obtém o teu cromo HOJE e participa num ingresso para o Mundial!<br />Sorteio a 11/07/2026
+            ¡Consigue tu cromo HOY y participa en el sorteo de una entrada para el Mundial!<br />Sorteo el 11/07/2026
           </p>
 
           <p
@@ -176,17 +176,17 @@ export default function ResultScreen({ stickerUrl, stickerId, onRetry, onCheckou
               active:scale-95 transition-all duration-200 cursor-pointer tracking-[0.15em] relative overflow-hidden"
             style={{
               fontFamily: "var(--font-titulo)",
-              background: "linear-gradient(135deg, #00DD55 0%, #00BB33 100%)",
-              boxShadow: "0 6px 24px rgba(0,153,51,0.45), inset 0 1px 0 rgba(255,255,255,0.15)",
+              background: "linear-gradient(135deg, #E2101F 0%, #AA151B 100%)",
+              boxShadow: "0 6px 24px rgba(170,21,27,0.45), inset 0 1px 0 rgba(255,255,255,0.15)",
             }}
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
-              ⚽ DESBLOQUEAR O MEU CROMO
+              ⚽ DESBLOQUEAR MI CROMO
             </span>
           </button>
 
-          <p className="text-sm text-green-100 text-center mt-3" style={{ fontFamily: "var(--font-papernotes)" }}>
-            ✅ Inclui download em alta qualidade
+          <p className="text-sm text-[#1a1a1a]/70 text-center mt-3" style={{ fontFamily: "var(--font-papernotes)" }}>
+            ✅ Incluye descarga en alta calidad
           </p>
         </div>
 

@@ -39,16 +39,16 @@
 @theme inline {
   --font-papernotes: 'Papernotes', cursive;
   --font-titulo: 'Anton', sans-serif;
-  --color-copa-yellow: #006600;
-  --color-copa-yellow-light: #1A7A1A;
-  --color-copa-blue: #155724;
-  --color-copa-blue-hover: #0f3d18;
-  --color-copa-green: #FFD700;
+  --color-copa-yellow: #FABD00;
+  --color-copa-yellow-light: #FFD23F;
+  --color-copa-blue: #8B0000;
+  --color-copa-blue-hover: #6E0000;
+  --color-copa-green: #C60B1E;
   --color-copa-white: #FFFFFF;
 }
 
 :root {
-  --background: #006600;
+  --background: #FABD00;
   --foreground: #1a1a1a;
 }
 
@@ -63,10 +63,10 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #1A7A1A;
+  background: #FFD23F;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C8102E;
+  background: #C60B1E;
   border-radius: 3px;
 }
 
@@ -77,8 +77,8 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(21, 87, 36, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(21, 87, 36, 0.6); }
+  0%, 100% { box-shadow: 0 0 20px rgba(198, 11, 30, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(198, 11, 30, 0.6); }
 }
 
 @keyframes slide-up {
