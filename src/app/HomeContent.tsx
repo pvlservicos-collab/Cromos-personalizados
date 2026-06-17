@@ -391,7 +391,7 @@ export default function HomeContent({ checkoutUrl, price, oferta: ofertaProp }: 
       {appStep === "loading-photo" && (
         <LoadingScreen
           title="CARGANDO FOTO"
-          gifUrl="https://media.giphy.com/media/qp61kl8rdZwuQ/giphy.gif"
+          gifUrl="https://media.giphy.com/media/SWcxJngaq8T5BMA2LZ/giphy.gif"
         />
       )}
 
@@ -416,7 +416,7 @@ export default function HomeContent({ checkoutUrl, price, oferta: ofertaProp }: 
       {appStep === "loading-generate" && (
         <LoadingScreen
           title="GENERANDO TU CROMO"
-          gifUrl="https://media.giphy.com/media/yPNVFnPOyo3E4Peg8C/giphy.gif"
+          gifUrl="https://media.giphy.com/media/SWcxJngaq8T5BMA2LZ/giphy.gif"
           longWait
           startTime={genStartTime}
         />
