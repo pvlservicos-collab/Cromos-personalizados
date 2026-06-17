@@ -33,7 +33,7 @@ const curiosidades = [
   "¿Sabías? La 'tiki-taka' española marcó una época en el fútbol mundial entre 2008 y 2012.",
   "¿Sabías? Sergio Ramos es el jugador con más partidos disputados con la selección española.",
   "¿Sabías? El FC Barcelona y su cantera, La Masia, formaron a leyendas como Iniesta, Xavi y Messi.",
-  "¿Sabías? España, Portugal y Marruecos coorganizarán el Mundial de 2030.",
+  "¿Sabías? España será una de las sedes del Mundial de 2030, celebrando el centenario del torneo.",
   "¿Sabías? El Atlético de Madrid ganó LaLiga en la temporada 2020-21.",
   "¿Sabías? Andrés Iniesta y Xavi Hernández son considerados los grandes maestros del centro del campo español.",
   "¿Sabías? España debutó en los Mundiales en 1934 y nunca ha dejado de crecer como potencia futbolística.",
@@ -112,7 +112,7 @@ export default function LoadingScreen({ title, gifUrl, longWait, startTime }: Lo
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://media.giphy.com/media/yPNVFnPOyo3E4Peg8C/giphy.gif"
+          src={gifUrl}
           alt="Futbolista"
           style={{ height: 260, width: "auto", borderRadius: 16, objectFit: "cover", display: "block" }}
         />

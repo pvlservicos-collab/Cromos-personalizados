@@ -416,7 +416,7 @@ export default function HomeContent({ checkoutUrl, price, oferta: ofertaProp }: 
       {appStep === "loading-generate" && (
         <LoadingScreen
           title="GENERANDO TU CROMO"
-          gifUrl="/sorteio.webp"
+          gifUrl="https://media.giphy.com/media/yPNVFnPOyo3E4Peg8C/giphy.gif"
           longWait
           startTime={genStartTime}
         />

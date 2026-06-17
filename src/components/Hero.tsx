@@ -111,9 +111,9 @@ export default function Hero({ onStart }: HeroProps) {
         <div className="flex items-center gap-1">
           {[
             { code: "es", label: "España", big: true },
-            { code: "pt", label: "Portugal", big: false },
             { code: "fr", label: "Francia", big: false },
             { code: "de", label: "Alemania", big: false },
+            { code: "ar", label: "Argentina", big: false },
             { code: "br", label: "Brasil", big: false },
           ].map(({ code, label, big }) => (
             <img
