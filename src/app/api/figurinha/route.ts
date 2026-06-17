@@ -203,7 +203,7 @@ INSTRUCTIONS:
 
 4. Place the portrait centered where the original athlete was in the card.
 
-5. Keep ALL other card elements from Image 2 unchanged, pixel-identical: the background, the "26" numerals graphic behind the portrait, the white FIFA World Cup trophy logo with "FIFA" wordmark in the top-right corner, the Spain flag shield emblem and vertical "ESP" outline lettering on the right edge, the PANINI logo in the bottom-right corner, the rounded text banners, and all borders/card edges.
+5. Keep ALL other card elements from Image 2 unchanged, pixel-identical: the background, the "26" numerals graphic behind the portrait, the Spain flag shield emblem and vertical "ESP" outline lettering on the right edge, the rounded text banners, and all borders/card edges.
 
 6. Update the text fields:
 [NAME]: ${nomeUpper}
