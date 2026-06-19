@@ -44,8 +44,8 @@ const initialData: QuizData = {
 
 type AppStep = "hero" | "quiz-1" | "loading-photo" | "quiz-2" | "quiz-3" | "confirm" | "loading-generate" | "result";
 
-const SEGUNDA_CHECKOUT = "https://pay.hotmart.com/T106028174P?checkoutMode=10";
-const SEGUNDA_PRICE = "€2,00";
+const SEGUNDA_CHECKOUT = "https://folem.mycartpanda.com/checkout";
+const SEGUNDA_PRICE = "€2,99";
 
 export default function HomeContent({ checkoutUrl, price, oferta: ofertaProp }: { checkoutUrl?: string; price?: string; oferta?: string }) {
   const isSegunda = typeof window !== "undefined" && !!new URLSearchParams(window.location.search).get("start");

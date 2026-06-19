@@ -684,7 +684,7 @@ function MembrosContent() {
                       Oferta exclusiva
                     </p>
                     <p style={{ margin: 0, fontSize: 17, fontWeight: 900, color: "#C8102E", lineHeight: 1.3 }}>
-                      Genera otro cromo por solo <span style={{ color: "#AA151B" }}>€2,00</span>
+                      Genera otro cromo por solo <span style={{ color: "#AA151B" }}>€2,99</span>
                     </p>
                   </div>
                   <a href="/?start=1"
