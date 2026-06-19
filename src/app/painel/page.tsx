@@ -705,9 +705,22 @@ function MetricasTab() {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16, flexWrap: "wrap", gap: 12 }}>
         <div>
           <h2 style={{ fontSize: 20, fontWeight: 800, color: "#0f172a", margin: "0 0 4px" }}>Métricas</h2>
-          <p style={{ color: "#64748b", fontSize: 13, margin: 0 }}>
+          <p style={{ color: "#64748b", fontSize: 13, margin: "0 0 4px" }}>
             {loading ? "Carregando..." : `Atualiza em ${countdown}s`}
           </p>
+          {process.env.NEXT_PUBLIC_CHECKOUT_URL ? (
+            <p style={{ fontSize: 11, margin: 0, color: "#475569" }}>
+              🛒 Checkout:{" "}
+              <a href={process.env.NEXT_PUBLIC_CHECKOUT_URL} target="_blank" rel="noreferrer"
+                style={{ color: "#3b82f6", fontWeight: 600, wordBreak: "break-all" }}>
+                {process.env.NEXT_PUBLIC_CHECKOUT_URL}
+              </a>
+            </p>
+          ) : (
+            <p style={{ fontSize: 11, margin: 0, color: "#ef4444", fontWeight: 600 }}>
+              ⚠️ NEXT_PUBLIC_CHECKOUT_URL não configurada
+            </p>
+          )}
         </div>
         <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
           {PERIODS.map(p => (
