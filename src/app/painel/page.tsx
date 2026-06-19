@@ -708,19 +708,13 @@ function MetricasTab() {
           <p style={{ color: "#64748b", fontSize: 13, margin: "0 0 4px" }}>
             {loading ? "Carregando..." : `Atualiza em ${countdown}s`}
           </p>
-          {process.env.NEXT_PUBLIC_CHECKOUT_URL ? (
-            <p style={{ fontSize: 11, margin: 0, color: "#475569" }}>
-              🛒 Checkout:{" "}
-              <a href={process.env.NEXT_PUBLIC_CHECKOUT_URL} target="_blank" rel="noreferrer"
-                style={{ color: "#3b82f6", fontWeight: 600, wordBreak: "break-all" }}>
-                {process.env.NEXT_PUBLIC_CHECKOUT_URL}
-              </a>
-            </p>
-          ) : (
-            <p style={{ fontSize: 11, margin: 0, color: "#ef4444", fontWeight: 600 }}>
-              ⚠️ NEXT_PUBLIC_CHECKOUT_URL não configurada
-            </p>
-          )}
+          <p style={{ fontSize: 11, margin: 0, color: "#475569" }}>
+            🛒 Checkout:{" "}
+            <a href="https://folem.mycartpanda.com/checkout/211028517:1" target="_blank" rel="noreferrer"
+              style={{ color: "#3b82f6", fontWeight: 600, wordBreak: "break-all" }}>
+              https://folem.mycartpanda.com/checkout/211028517:1
+            </a>
+          </p>
         </div>
         <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
           {PERIODS.map(p => (
