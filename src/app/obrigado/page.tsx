@@ -7,19 +7,19 @@ import { track } from "@/lib/track";
 const FAQ_ITEMS = [
   {
     q: "¿Cuándo voy a recibir mi cromo?",
-    a: "Tu cromo se genera automáticamente y puedes acceder a él en el área de descargas con tu número de WhatsApp.",
+    a: "Tu cromo se genera automáticamente y puedes acceder a él en el área de descargas con tu email.",
   },
   {
     q: "¿Cómo descargo mi cromo?",
-    a: "Introduce tu número abajo, accede al área de descargas y haz clic en '⬇ Descargar PNG'.",
+    a: "Introduce tu email abajo, accede al área de descargas y haz clic en '⬇ Descargar PNG'.",
   },
   {
     q: "Compré más de 1 producto",
-    a: "Introduce tu número en el formulario de abajo para acceder al área de descargas con todos tus productos.",
+    a: "Introduce tu email en el formulario de abajo para acceder al área de descargas con todos tus productos.",
   },
   {
     q: "¿El cromo es digital o físico?",
-    a: "Tu cromo es una imagen digital (PNG) lista para compartir en WhatsApp, redes sociales o imprimir en casa.",
+    a: "Tu cromo es una imagen digital (PNG) lista para compartir en redes sociales o imprimir en casa.",
   },
 ];
 
@@ -132,7 +132,7 @@ function FaqBubble() {
 export default function Obrigado() {
   const router = useRouter();
 
-  const [phone, setPhone] = useState("");
+  const [emailInput, setEmailInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -140,22 +140,22 @@ export default function Obrigado() {
     track("obrigado");
 
     const params = new URLSearchParams(window.location.search);
-    const foneParam = params.get("fone");
-    if (foneParam) {
-      const digits = foneParam.replace(/\D/g, "").slice(0, 15);
-      if (digits.length >= 9) { router.replace(`/membros?fone=${digits}`); return; }
+    const emailParam = params.get("email");
+    if (emailParam) {
+      const e = emailParam.trim().toLowerCase();
+      if (e.includes("@")) { router.replace(`/membros?email=${encodeURIComponent(e)}`); return; }
     }
   }, [router]);
 
   const handleLogin = async () => {
-    const digits = phone.replace(/\D/g, "");
-    if (digits.length < 9) { setError("Introduce un número de móvil válido (9 dígitos)."); return; }
+    const e = emailInput.trim().toLowerCase();
+    if (!e.includes("@") || e.length < 5) { setError("Introduce un email válido."); return; }
     setLoading(true); setError(null);
     try {
-      const res = await fetch(`/api/membros?fone=${digits}`);
-      if (res.status === 404) { setError("No se encontró ninguna compra para ese número."); return; }
+      const res = await fetch(`/api/membros?email=${encodeURIComponent(e)}`);
+      if (res.status === 404) { setError("No se encontró ninguna compra para ese email."); return; }
       if (!res.ok) throw new Error();
-      router.push(`/membros?fone=${digits}`);
+      router.push(`/membros?email=${encodeURIComponent(e)}`);
     } catch {
       setError("Error al verificar. Inténtalo de nuevo.");
     } finally {
@@ -187,21 +187,20 @@ export default function Obrigado() {
       <div style={{ width: "100%", maxWidth: 480 }}>
         <div style={{ background: "#fff", borderRadius: 24, padding: "32px 28px", boxShadow: "0 20px 60px rgba(0,0,0,.25)" }}>
           <h2 style={{ fontSize: 20, fontWeight: 800, color: "#C8102E", margin: "0 0 8px", display: "flex", alignItems: "center", gap: 8 }}>
-            📱 Descarga tu cromo con tu número:
+            📧 Descarga tu cromo con tu email:
           </h2>
           <p style={{ fontSize: 14, color: "#64748b", margin: "0 0 20px", fontFamily: "var(--font-papernotes)" }}>
-            Escribe el número que indicaste al principio para acceder a tu cromo y a todos tus productos.
+            Escribe el email que indicaste al principio para acceder a tu cromo y a todos tus productos.
           </p>
 
           <input
-            type="tel"
-            inputMode="numeric"
-            placeholder="Ej: 612345678"
-            value={phone}
-            maxLength={15}
+            type="email"
+            placeholder="tu@email.com"
+            value={emailInput}
+            maxLength={255}
             disabled={loading}
             autoFocus
-            onChange={e => { setPhone(e.target.value.replace(/\D/g, "")); setError(null); }}
+            onChange={e => { setEmailInput(e.target.value); setError(null); }}
             onKeyDown={e => e.key === "Enter" && !loading && handleLogin()}
             style={{
               width: "100%", boxSizing: "border-box",

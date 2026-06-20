@@ -4,9 +4,10 @@ import Image from "next/image";
 
 interface HeroProps {
   onStart: () => void;
+  ctaText?: string;
 }
 
-export default function Hero({ onStart }: HeroProps) {
+export default function Hero({ onStart, ctaText }: HeroProps) {
   return (
     <section className="flex flex-col items-center min-h-[100dvh] w-full px-5 pt-8 pb-4 text-center overflow-x-hidden justify-center gap-3 md:gap-2 md:py-6" style={{ background: "#FABD00", position: "relative" }}>
       <a href="/ver-preco" style={{ position: "absolute", top: 10, right: 12, fontSize: 10, color: "rgba(0,0,0,0.35)", textDecoration: "none", fontFamily: "monospace" }}>💲 precio</a>
@@ -104,7 +105,7 @@ export default function Hero({ onStart }: HeroProps) {
           boxShadow: "0 6px 24px rgba(170,21,27,0.45), inset 0 1px 0 rgba(255,255,255,0.15)",
         }}
       >
-        CREAR MI CROMO
+        {ctaText || "CREAR MI CROMO"}
       </button>
 
       <div className="mt-2 flex flex-col items-center gap-2">

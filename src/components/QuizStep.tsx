@@ -5,25 +5,12 @@ import { useState, useRef, useEffect } from "react";
 export interface QuizData {
   nome: string;
   dataNascimento: string;
-  telefone: string;
+  email: string;
   clube: string;
   jogadorFavorito: string;
   peso: string;
   altura: string;
   foto: File | null;
-}
-
-function formatPhone(input: string): string {
-  let digits = input.replace(/\D/g, "");
-  // Elimina el código de país: +34 / 0034 / 34
-  if (digits.startsWith("0034")) digits = digits.slice(4);
-  else if (digits.startsWith("34") && digits.length > 9) digits = digits.slice(2);
-  digits = digits.slice(0, 9);
-  const n = digits.length;
-  if (n === 0) return "";
-  if (n <= 3) return digits;
-  if (n <= 6) return `${digits.slice(0, 3)} ${digits.slice(3)}`;
-  return `${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6)}`;
 }
 
 interface QuizStepProps {
@@ -93,8 +80,8 @@ export default function QuizStep({ step, data, updateData, onNext, onBack, total
           const age = now.getFullYear() - birth.getFullYear();
           if (age < 0 || age > 120) newErrors.dataNascimento = "Fecha inválida";
         }
-        { const digits = data.telefone.replace(/\D/g, "");
-          if (digits.length < 9) newErrors.telefone = "Introduce un número de móvil válido (9 dígitos)"; }
+        { const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(data.email.trim())) newErrors.email = "Introduce un correo electrónico válido"; }
         break;
       case 3:
         if (!data.clube || data.clube.trim().length < 2) newErrors.clube = "Escribe o selecciona un club";
@@ -270,23 +257,23 @@ export default function QuizStep({ step, data, updateData, onNext, onBack, total
             </div>
             {errors.dataNascimento && <p className="text-red-500 text-sm mt-1">{errors.dataNascimento}</p>}
 
-            {/* WhatsApp */}
+            {/* Email */}
             <div>
               <label className="block text-lg font-bold mb-1 text-copa-blue" style={{ fontFamily: "var(--font-titulo)" }}>
-                TU WHATSAPP
+                TU CORREO
               </label>
               <input
-                type="tel"
-                value={data.telefone}
-                onChange={(e) => updateData({ telefone: formatPhone(e.target.value) })}
-                placeholder="612 345 678"
-                maxLength={11}
-                autoComplete="tel"
-                inputMode="numeric"
+                type="email"
+                value={data.email}
+                onChange={(e) => updateData({ email: e.target.value.trim() })}
+                placeholder="nombre@ejemplo.com"
+                maxLength={255}
+                autoComplete="email"
+                inputMode="email"
                 className="w-full px-4 py-4 text-lg border-2 border-gray-200 rounded-xl focus:border-copa-blue focus:outline-none transition-colors placeholder:text-gray-400"
                 style={{ fontFamily: "var(--font-papernotes)" }}
               />
-              {errors.telefone && <p className="text-red-500 text-sm mt-1">{errors.telefone}</p>}
+              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
           </div>
         )}
