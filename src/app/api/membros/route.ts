@@ -31,7 +31,7 @@ export async function GET(req: NextRequest) {
       WHERE email = ${email}
         AND sticker_url IS NOT NULL
       ORDER BY created_at DESC
-    `,
+    `.catch(() => []),
     sql`
       SELECT item_type, offer_name, product_name, price, status, created_at
       FROM pedido_items
