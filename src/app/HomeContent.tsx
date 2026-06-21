@@ -44,7 +44,7 @@ const initialData: QuizData = {
 
 type AppStep = "hero" | "quiz-1" | "loading-photo" | "quiz-2" | "quiz-3" | "confirm" | "loading-generate" | "result";
 
-const SEGUNDA_CHECKOUT = "https://folem.mycartpanda.com/checkout";
+const SEGUNDA_CHECKOUT = "https://folem.mycartpanda.com/checkout/211028517:1";
 const SEGUNDA_PRICE = "€2,99";
 
 export default function HomeContent({ checkoutUrl, price, firstButtonText, purchaseButtonText, oferta: ofertaProp }: { checkoutUrl?: string; price?: string; firstButtonText?: string; purchaseButtonText?: string; oferta?: string }) {
