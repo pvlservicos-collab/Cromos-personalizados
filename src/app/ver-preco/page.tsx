@@ -7,7 +7,7 @@ export default function VerPreco() {
       stickerUrl="/figurinhamiguel.webp"
       stickerId="preview"
       onRetry={() => {}}
-      checkoutUrl="https://pay.hotmart.com/T106028174P?checkoutMode=10"
+      checkoutUrl="https://buy.stripe.com/eVq5kD21lcOBfAx2vZ5Vu06"
       price="$3.500"
     />
   );
